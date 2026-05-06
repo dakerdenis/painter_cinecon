@@ -5,6 +5,7 @@
 {% block title %}Home{% endblock %}
 
 {% block page_css %}
+<link rel="stylesheet" href="{% static 'css/main.css' %}">
 <link rel="stylesheet" href="{% static 'css/home.css' %}">
 {% endblock %}
 
@@ -21,11 +22,11 @@
 
 <!-- 2. Меню после разлёта -->
 <nav class="shatter-nav" id="shatterNav">
-  <a href="#">About Me</a>
-  <a href="#">Work</a>
-  <a href="#">Exhibitions</a>
-  <a href="#">Blog</a>
-  <a href="#">Contact</a>
+  <a href="{% url 'about' %}">About Me</a>
+  <a href="{% url 'work' %}">Work</a>
+  <a href="{% url 'exhibitions' %}">Exhibitions</a>
+  <a href="{% url 'blog' %}">Blog</a>
+  <a href="{% url 'contact' %}">Contact</a>
   <button class="shatter-back" id="shatterBack">← Back</button>
 </nav>
 
