@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="{{ request.LANGUAGE_CODE }}">
+
 <head>
     <meta charset="UTF-8">
     <title>{% block title %}Painter Cinecon{% endblock %}</title>
@@ -11,22 +12,53 @@
 
     {% block page_css %}{% endblock %}
 </head>
+
 <body>
+    <div class="main__container">
+        <header class="page-header">
+            <div class="header__logo">
+                <div class="header__logo-image">
+                    <img src="" alt="">
+                </div>
 
-<header class="page-header">
-    <nav class="page-nav">
-        <a href="{% url 'home' %}">Home</a>
-        <a href="{% url 'about' %}">About Me</a>
-        <a href="{% url 'work' %}">Work</a>
-        <a href="{% url 'exhibitions' %}">Exhibitions</a>
-        <a href="{% url 'blog' %}">Blog</a>
-        <a href="{% url 'contact' %}">Contact</a>
-    </nav>
-</header>
+                <div class="header__logo-line"></div>
 
-<main class="page-main">
-    {% block content %}{% endblock %}
-</main>
+                <div class="header__logo-name">
+                    <h3>Digital Artist</h3>
+                </div>
+            </div>
+            <nav class="page-nav">
+                <a href="{% url 'home' %}">Home</a>
+                <a href="{% url 'about' %}">About Me</a>
+                <a href="{% url 'work' %}">Works</a>
+                <a href="{% url 'exhibitions' %}">Exhibitions</a>
+                <a href="{% url 'blog' %}">Blog</a>
+                <a href="{% url 'contact' %}">Contact</a>
+            </nav>
+        </header>
+
+        <main class="page-main">
+            {% block content %}{% endblock %}
+        </main>
+        <footer>
+            <div class="footer__container">
+                <div class="footer__social">
+                    <!---fa linkedin-->
+                    <!---fa Instagram-->
+                    <!---fa Facebook-->
+                </div>
+                <div class="footer__copyrights">
+                    <div class="footer__created">
+                        Created by <a target="_blank" href="#">DAKER.</a>
+                    </div>
+                    <div class="footer__copy">
+                        © 2026 Jason Craig.
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
 
 </body>
+
 </html>
