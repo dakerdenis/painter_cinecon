@@ -1,0 +1,257 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Jost:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+.about__container {
+    width: 100%;
+    height: initial;
+    min-height: 100vh;
+}
+
+.about__desc {
+    width: 1180px;
+    height: 750px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    padding-top: 100px;
+
+}
+
+.about__desc-text {
+    width: 653px;
+}
+
+.about__desc-name h3 {
+    font-size: 55px;
+    color: #1e0f0f;
+}
+
+.about__desc-name p {
+    font-size: 16px;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.3em;
+    color: #1e0f0f;
+    margin-top: 20px;
+}
+
+.about__desc-widget-container {
+    width: 100%;
+    padding-left: 70px;
+    padding-right: 30px;
+    margin-top: 50px;
+}
+
+.about__desc-widget-container p {
+    margin-bottom: 30px;
+    font-size: 18px;
+    color: #000;
+    line-height: 140%;
+}
+
+.about__desc-image {
+    width: calc(100% - 653px - 20px);
+
+}
+
+.about__desc-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/************/
+.about__background-move {
+    margin-top: 300px;
+    width: 100%;
+    height: 465px;
+    background-image: url('https://themes.pixelwars.org/artflow/demo-01/wp-content/uploads/sites/2/2023/06/woman-with-colorful-dress-jewelry-that-says-word-it.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    overflow: hidden;
+}
+
+.about__background-move-wrapper {
+    background-color: rgba(8, 28, 63, 0.43);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.about__background-move-content {
+    width: 100%;
+    overflow: hidden;
+}
+
+.move-track {
+    display: flex;
+    width: max-content;
+    white-space: nowrap;
+}
+
+.move-track--left {
+    animation: scrollLeft 20s linear infinite;
+}
+
+.move-track--right {
+    animation: scrollRight 20s linear infinite;
+}
+
+.move-content1 {
+    color: #fff;
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 124px;
+    line-height: 1.1;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.move-content2 {
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 100px;
+    line-height: 1.1;
+    white-space: nowrap;
+    flex-shrink: 0;
+    color: transparent;
+    -webkit-text-stroke: 3px #fff;
+}
+
+@keyframes scrollLeft {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+@keyframes scrollRight {
+    0% { transform: translateX(-50%); }
+    100% { transform: translateX(0); }
+}
+/******awards******/
+.about__awards {
+    width: 100%;
+    height: 600px;
+
+        position: relative;
+}
+.about__awards-line{
+    position: absolute;
+    width: 100%;
+    height: 0.5px;
+    background-color: rgba(0, 0, 0, 0.15);
+}
+.about__awards_container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    overflow-x: auto;
+    cursor: grab;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+
+}
+
+.about__awards_container::-webkit-scrollbar {
+    display: none;
+}
+
+.about__awards_container.dragging {
+    cursor: grabbing;
+    user-select: none;
+}
+
+.about__awards-element {
+    margin: 0 50px;
+    width: 350px;
+    min-width: 350px;
+    height: 350px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+
+    padding-bottom: 70px;
+}
+
+.awards-element__image {
+    width: 177px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+}
+.awards-element__image img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+.awards-element-dot {
+    margin-top: 20px;
+    border-radius: 50%;
+    background-color: #000;
+    width: 19px;
+    height: 19px;
+}
+
+.awards-element-name {
+    font-size: 17px;
+    color: #020202;
+    line-height: 130%;
+    height: 40px;
+}
+
+.awards-element-desc {
+    text-align: center;
+}
+.awards-element-desc p{
+    margin-top: 5px;
+}
+.awards-element-desc p:nth-child(3){
+    font-weight: 600;
+}
+/******MOVE 2******/
+.about__background-move2 {
+        margin-top: 100px;
+    width: 100%;
+    height: 465px;
+    background-image: url('https://themes.pixelwars.org/artflow/demo-01/wp-content/uploads/sites/2/2023/06/woman-with-colorful-face-paint.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    overflow: hidden;
+}
+.about__background-move2-wrapper{
+        background-color: rgba(8, 28, 63, 0.43);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+.about__background-move2-container {}
+
+.background-move2-block {}
+
+.background-move2-block-numbers {}
+
+.background-move2-block-line {}
+
+.background-move2-block-name {}
+
+.about__gallery {
+    width: 100%;
+    min-height: 450px;
+}
+
+.about__gallery-wrapper {}
+
+.about__gallery-element {}
