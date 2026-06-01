@@ -47,12 +47,24 @@
 .page-main {
 }
 .footer__container {
+    width: 100%;
+    height: 104px;
+    display: flex;
+    align-items: center;
+    padding: 0px 100px;
+    justify-content: space-between;
+
 }
 .footer__social {
 }
 .footer__copyrights {
+    display: flex;
 }
 .footer__created {
 }
 .footer__copy {
+margin-right: 50px;
+}
+.footer__created  a {
+    color: #020202;
 }

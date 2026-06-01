@@ -1,7 +1,7 @@
 {% extends "main/layouts/page.html" %}
-{% load static %}
+{% load static i18n %}
 
-{% block title %}Work{% endblock %}
+{% block title %}{% trans "Works" %}{% endblock %}
 
 {% block page_css %}
 <link rel="stylesheet" href="{% static 'css/work.css' %}">
@@ -9,6 +9,34 @@
 
 {% block content %}
 <section class="work-page">
-    <h1>Work</h1>
+    <div class="work__container">
+        <div class="work__name">
+            {% trans "Works" %}
+        </div>
+
+        <div class="work__description">
+            <p>{% trans "A fusion of abstract and landscape elements, these artworks offer a unique perspective on natural scenery." %}</p>
+        </div>
+
+        <div class="work__filter">
+            <a href="{% url 'work' %}"{% if not active_category %} class="is-active"{% endif %}>{% trans "All" %}</a>
+            {% for cat in categories %}
+            <a href="?category={{ cat.slug }}"{% if active_category == cat.slug %} class="is-active"{% endif %}>{{ cat.name }}</a>
+            {% endfor %}
+        </div>
+
+        <div class="work__elements">
+            {% for p in paintings %}
+            <a href="{{ p.get_absolute_url }}" class="work__element">
+                <div class="work__element-back" style="background-image: url('{{ p.main_image.url }}');"></div>
+                <div class="work__element-desc">
+                    <p>{{ p.title }}</p>
+                </div>
+            </a>
+            {% empty %}
+            <p>{% trans "No works yet." %}</p>
+            {% endfor %}
+        </div>
+    </div>
 </section>
 {% endblock %}

@@ -1,0 +1,36 @@
+{% extends "main/layouts/page.html" %}
+{% load static %}
+
+{% block title %}Single work name{% endblock %}
+
+{% block page_css %}
+<link rel="stylesheet" href="{% static 'css/single_work.css' %}">
+{% endblock %}
+
+{% block content %}
+<section class="single_work-page">
+    <div class="single_work_container">
+        <!----single work desc---->
+        <div class="single_work-desc">
+            <div class="single_work-name">
+                Autistic Journeys
+            </div>
+            <div class="single_work-desc">
+                A series of captivating portraits that delve into the depth of human emotions and experiences. Each
+                painting tells a unique story, revealing the essence and inner world of the subjects through careful
+                observation and skilled brushwork.
+            </div>
+            <div class="single_work-properties">
+
+            </div>
+        </div>
+        <!----single work images---->
+        <div class="single_work-images">
+            <div class="single_work-image_block">
+                <img src="" alt="">
+            </div>
+        </div>
+        <!----single work next or previous---->
+    </div>
+</section>
+{% endblock %}

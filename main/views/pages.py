@@ -1,15 +1,12 @@
 from django.shortcuts import render
 
+
 def home(request):
     return render(request, 'main/home.html')
 
 
 def about(request):
     return render(request, 'main/pages/about.html')
-
-
-def work(request):
-    return render(request, 'main/pages/work.html')
 
 
 def exhibitions(request):

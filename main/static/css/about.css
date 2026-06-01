@@ -121,27 +121,40 @@
 }
 
 @keyframes scrollLeft {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
 }
 
 @keyframes scrollRight {
-    0% { transform: translateX(-50%); }
-    100% { transform: translateX(0); }
+    0% {
+        transform: translateX(-50%);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
 }
+
 /******awards******/
 .about__awards {
     width: 100%;
     height: 600px;
 
-        position: relative;
+    position: relative;
 }
-.about__awards-line{
+
+.about__awards-line {
     position: absolute;
     width: 100%;
     height: 0.5px;
     background-color: rgba(0, 0, 0, 0.15);
 }
+
 .about__awards_container {
     width: 100%;
     height: 100%;
@@ -187,11 +200,13 @@
     justify-content: flex-end;
 
 }
-.awards-element__image img{
+
+.awards-element__image img {
     width: 100%;
     height: 100%;
     object-fit: contain;
 }
+
 .awards-element-dot {
     margin-top: 20px;
     border-radius: 50%;
@@ -210,15 +225,18 @@
 .awards-element-desc {
     text-align: center;
 }
-.awards-element-desc p{
+
+.awards-element-desc p {
     margin-top: 5px;
 }
-.awards-element-desc p:nth-child(3){
+
+.awards-element-desc p:nth-child(3) {
     font-weight: 600;
 }
+
 /******MOVE 2******/
 .about__background-move2 {
-        margin-top: 100px;
+    margin-top: 100px;
     width: 100%;
     height: 465px;
     background-image: url('https://themes.pixelwars.org/artflow/demo-01/wp-content/uploads/sites/2/2023/06/woman-with-colorful-face-paint.jpg');
@@ -228,8 +246,9 @@
     background-attachment: fixed;
     overflow: hidden;
 }
-.about__background-move2-wrapper{
-        background-color: rgba(8, 28, 63, 0.43);
+
+.about__background-move2-wrapper {
+    background-color: rgba(8, 28, 63, 0.63);
     width: 100%;
     height: 100%;
     display: flex;
@@ -237,15 +256,57 @@
     justify-content: center;
     overflow: hidden;
 }
-.about__background-move2-container {}
 
-.background-move2-block {}
+.about__background-move2-container {
+    width: 1200px;
+    height: 215px;
+    margin: 0 auto;
 
-.background-move2-block-numbers {}
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 
-.background-move2-block-line {}
+.background-move2-block {
+    width: 331px;
+    height: 100%;
 
-.background-move2-block-name {}
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.background-move2-block-numbers {
+    background-color: #180d0d;
+    width: 105px;
+    height: 105px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    -webkit-text-stroke-color: rgb(255, 255, 149);
+        text-shadow: none;
+    color: transparent !important;
+    -webkit-text-stroke-width: 1px;
+        font-size: 60px;
+}
+
+.background-move2-block-line {
+    margin-top: 30px;
+    width: 100%;
+    height: 0.5px;
+    background-color: rgba(116, 116, 116, 0.5);
+}
+
+
+.background-move2-block-name {
+    color: rgb(255, 246, 199);
+    font-size: 22px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.3em;
+    margin-top: 20px;
+}
 
 .about__gallery {
     width: 100%;
