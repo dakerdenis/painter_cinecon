@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <title>{% block title %}Painter Cinecon{% endblock %}</title>
 
-    {% load static %}
+    {% load static i18n %}
 
     <link rel="stylesheet" href="{% static 'css/main.css' %}">
     <link rel="stylesheet" href="{% static 'css/pages.css' %}">
@@ -27,14 +27,25 @@
                     <h3>Digital Artist</h3>
                 </div>
             </div>
-            <nav class="page-nav">
-                <a href="{% url 'home' %}">Home</a>
-                <a href="{% url 'about' %}">About Me</a>
-                <a href="{% url 'work' %}">Works</a>
-                <a href="{% url 'exhibitions' %}">Exhibitions</a>
-                <a href="{% url 'blog' %}">Blog</a>
-                <a href="{% url 'contact' %}">Contact</a>
+<nav class="page-nav">
+                <a href="{% url 'home' %}">{% trans "Home" %}</a>
+                <a href="{% url 'about' %}">{% trans "About Me" %}</a>
+                <a href="{% url 'work' %}">{% trans "Works" %}</a>
+                <a href="{% url 'exhibitions' %}">{% trans "Exhibitions" %}</a>
+                <a href="{% url 'blog' %}">{% trans "Blog" %}</a>
+                <a href="{% url 'contact' %}">{% trans "Contact" %}</a>
             </nav>
+            <div class="page-lang">
+                {% get_current_language as CUR %}
+                <form action="{% url 'set_language' %}" method="post">
+                    {% csrf_token %}
+                    <input type="hidden" name="next" value="{{ request.path }}">
+                    {% get_available_languages as LANGS %}
+                    {% for code, name in LANGS %}
+                    <button type="submit" name="language" value="{{ code }}"{% if code == CUR %} class="is-active"{% endif %}>{{ code|upper }}</button>
+                    {% endfor %}
+                </form>
+            </div>
         </header>
 
         <main class="page-main">
