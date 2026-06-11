@@ -1,7 +1,7 @@
 {% extends "main/layouts/page.html" %}
-{% load static i18n %}
+{% load static i18n i18n_db %}
 
-{% block title %}{% trans "Works" %}{% endblock %}
+{% block title %}{% t "work.title" "Works" %}{% endblock %}
 
 {% block page_css %}
 <link rel="stylesheet" href="{% static 'css/work.css' %}">
@@ -11,17 +11,18 @@
 <section class="work-page">
     <div class="work__container">
         <div class="work__name">
-            {% trans "Works" %}
+            {% t "work.title" "Works" %}
         </div>
 
         <div class="work__description">
-            <p>{% trans "A fusion of abstract and landscape elements, these artworks offer a unique perspective on natural scenery." %}</p>
+<p>{% t "work.description" "A fusion of abstract and landscape elements, these artworks offer a unique perspective on natural scenery." %}</p>
         </div>
 
         <div class="work__filter">
-            <a href="{% url 'work' %}"{% if not active_category %} class="is-active"{% endif %}>{% trans "All" %}</a>
+<a href="{% url 'work' %}" class="work__filter-item{% if not active_category %} is-active{% endif %}">{% t "work.filter.all" "All" %}</a>
             {% for cat in categories %}
-            <a href="?category={{ cat.slug }}"{% if active_category == cat.slug %} class="is-active"{% endif %}>{{ cat.name }}</a>
+            <a href="?category={{ cat.slug }}"
+                class="work__filter-item{% if active_category == cat.slug %} is-active{% endif %}">{{ cat.name }}</a>
             {% endfor %}
         </div>
 
@@ -34,7 +35,7 @@
                 </div>
             </a>
             {% empty %}
-            <p>{% trans "No works yet." %}</p>
+            <p>{% t "work.empty" "No works yet." %}</p>
             {% endfor %}
         </div>
     </div>

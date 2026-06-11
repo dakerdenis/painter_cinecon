@@ -1,7 +1,7 @@
 {% extends "main/layouts/page.html" %}
 {% load static %}
 
-{% block title %}Single work name{% endblock %}
+{% block title %}{{ painting.title }}{% endblock %}
 
 {% block page_css %}
 <link rel="stylesheet" href="{% static 'css/single_work.css' %}">
@@ -13,24 +13,41 @@
         <!----single work desc---->
         <div class="single_work-desc">
             <div class="single_work-name">
-                Autistic Journeys
+                {{ painting.title }}
             </div>
-            <div class="single_work-desc">
-                A series of captivating portraits that delve into the depth of human emotions and experiences. Each
-                painting tells a unique story, revealing the essence and inner world of the subjects through careful
-                observation and skilled brushwork.
+            <div class="single_work-text">
+                {{ painting.description|linebreaksbr }}
             </div>
             <div class="single_work-properties">
-
+                {% if painting.category %}<p>{{ painting.category.name }}</p>{% endif %}
+                {% if painting.technique %}<p>{{ painting.technique.name }}</p>{% endif %}
+                {% if painting.year %}<p>{{ painting.year }}</p>{% endif %}
+                {% if painting.dimensions %}<p>{{ painting.dimensions }}</p>{% endif %}
             </div>
         </div>
         <!----single work images---->
         <div class="single_work-images">
             <div class="single_work-image_block">
-                <img src="" alt="">
+                <img src="{{ painting.main_image.url }}" alt="{{ painting.title }}">
             </div>
+            {% for img in painting.images.all %}
+            <div class="single_work-image_block">
+                <img src="{{ img.image.url }}" alt="{{ painting.title }}">
+            </div>
+            {% endfor %}
         </div>
-        <!----single work next or previous---->
+        <!----single work next or previous Future section---->
     </div>
 </section>
+<script>
+    (function () {
+        var c = document.querySelector('.single_work_container');
+        if (!c) return;
+        c.addEventListener('wheel', function (e) {
+            if (e.deltaY === 0) return;
+            e.preventDefault();
+            c.scrollLeft += e.deltaY;
+        }, { passive: false });
+    })();
+</script>
 {% endblock %}

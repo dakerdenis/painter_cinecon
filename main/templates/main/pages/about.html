@@ -1,7 +1,6 @@
 {% extends "main/layouts/page.html" %}
-{% load static %}
-
-{% block title %}About Me{% endblock %}
+{% load static i18n_db %}
+{% block title %}{% t "about.title" "About Me" %}{% endblock %}
 
 {% block page_css %}
 <link rel="stylesheet" href="{% static 'css/about.css' %}">
@@ -14,21 +13,15 @@
         <!----abput desc text---->
         <div class="about__desc-text">
             <div class="about__desc-name">
-                <h3>A Window into Creativity</h3>
-                <p>Uncovering the Artistic Story of Jason Cariag</p>
+                <h3>{% t "about.hero.title" "A Window into Creativity" %}</h3>
+                <p>{% t "about.hero.subtitle" "Uncovering the Artistic Story of Jason Cariag" %}</p>
             </div>
             <div class="about__desc-widget-container">
-                <p>Welcome to my artistic world!</p>
-                <p>I am Jason Craig, a passionate painter and visual storyteller. Through the medium of paint, I strive
-                    to capture the essence of emotions, moments, and the beauty that surrounds us. Art has always been
-                    my language of expression, allowing me to convey ideas and perspectives that words often fail to
-                    capture.</p>
-                <p>Inspired by the interplay of light and shadow, the nuances of colors, and the depth of human
-                    experiences, my paintings take viewers on a journey of contemplation and introspection. Each
-                    brushstroke is an opportunity for me to communicate my thoughts and feelings, and to invite you to
-                    see the world through my eyes.</p>
+                <p>{% t "about.welcome" "Welcome to my artistic world!" %}</p>
+                <p>{% t "about.intro" %}</p>
+                <p>{% t "about.intro" %}</p>
                 <div>
-                    Signature image
+                    {% t "about.signature" "Signature image" %}
                 </div>
             </div>
         </div>
@@ -196,33 +189,26 @@
             <div class="about__background-move2-container">
                 <!---numbers block 1---->
                 <div class="background-move2-block">
-                    <div class="background-move2-block-numbers">
-                        62
-                    </div>
+                    <div class="background-move2-block-numbers" data-target="62">0</div>
                     <div class="background-move2-block-line"></div>
                     <div class="background-move2-block-name">
-                        Projects completed
+                        {% t "about.stats.projects" "Projects completed" %}
                     </div>
                 </div>
                 <!---numbers block 2---->
                 <div class="background-move2-block">
-                    <div class="background-move2-block-numbers">
-                        23
-                    </div>
+                    <div class="background-move2-block-numbers" data-target="23">0</div>
                     <div class="background-move2-block-line"></div>
                     <div class="background-move2-block-name">
-
-                        Years of Experience
+                        {% t "about.stats.experience" "Years of Experience" %}
                     </div>
                 </div>
                 <!---numbers block 2---->
                 <div class="background-move2-block">
-                    <div class="background-move2-block-numbers">
-                        8
-                    </div>
+                    <div class="background-move2-block-numbers" data-target="8">0</div>
                     <div class="background-move2-block-line"></div>
                     <div class="background-move2-block-name">
-                        Art Books Published
+                        {% t "about.stats.books" "Art Books Published" %}
                     </div>
                 </div>
             </div>
@@ -269,5 +255,34 @@
             el.scrollLeft = touchScroll - (e.touches[0].pageX - touchX);
         });
     })();
+</script>
+<script>
+    // Count up numbers
+        var counters = document.querySelectorAll('.background-move2-block-numbers');
+        var animateCount = function (node) {
+            var target = parseInt(node.getAttribute('data-target'), 10) || 0;
+            var duration = 1500;
+            var start = null;
+            var step = function (ts) {
+                if (!start) start = ts;
+                var progress = Math.min((ts - start) / duration, 1);
+                node.textContent = Math.floor(progress * target);
+                if (progress < 1) {
+                    requestAnimationFrame(step);
+                } else {
+                    node.textContent = target;
+                }
+            };
+            requestAnimationFrame(step);
+        };
+        var io = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+                if (entry.isIntersecting) {
+                    animateCount(entry.target);
+                    io.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+        counters.forEach(function (c) { io.observe(c); });
 </script>
 {% endblock %}

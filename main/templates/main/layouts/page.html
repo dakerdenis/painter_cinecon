@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <title>{% block title %}Painter Cinecon{% endblock %}</title>
 
-    {% load static i18n %}
+    {% load static i18n i18n_db %}
 
     <link rel="stylesheet" href="{% static 'css/main.css' %}">
     <link rel="stylesheet" href="{% static 'css/pages.css' %}">
@@ -28,13 +28,14 @@
                 </div>
             </div>
 <nav class="page-nav">
-                <a href="{% url 'home' %}">{% trans "Home" %}</a>
-                <a href="{% url 'about' %}">{% trans "About Me" %}</a>
-                <a href="{% url 'work' %}">{% trans "Works" %}</a>
-                <a href="{% url 'exhibitions' %}">{% trans "Exhibitions" %}</a>
-                <a href="{% url 'blog' %}">{% trans "Blog" %}</a>
-                <a href="{% url 'contact' %}">{% trans "Contact" %}</a>
+                <a href="{% url 'home' %}">{% t "nav.home" "Home" %}</a>
+                <a href="{% url 'about' %}">{% t "nav.about" "About Me" %}</a>
+                <a href="{% url 'work' %}">{% t "nav.work" "Works" %}</a>
+                <a href="{% url 'exhibitions' %}">{% t "nav.exhibitions" "Exhibitions" %}</a>
+                <a href="{% url 'blog' %}">{% t "nav.blog" "Blog" %}</a>
+                <a href="{% url 'contact' %}">{% t "nav.contact" "Contact" %}</a>
             </nav>
+            
             <div class="page-lang">
                 {% get_current_language as CUR %}
                 <form action="{% url 'set_language' %}" method="post">

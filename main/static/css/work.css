@@ -23,6 +23,7 @@
     width: 100%;
     flex-wrap: wrap;
     justify-content: space-between;
+        counter-reset: article;
 }
 .work__element {
     height: 456px;
@@ -30,6 +31,7 @@
     overflow: hidden;
     position: relative;
     margin-bottom: 40px;
+    counter-increment: article;
 }
 .work__element-back {
     position: absolute;
@@ -70,8 +72,33 @@
     color: #020202;
     font-size: 38px;
     white-space: nowrap;
-    overflow: hidden;
+
     text-overflow: ellipsis;
 }
 
 
+.work__filter {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 60px;
+}
+.work__filter-item {
+    padding: 10px 24px;
+    font-size: 15px;
+    letter-spacing: 0.5px;
+    color: #020202;
+    border: 1px solid #020202;
+    border-radius: 30px;
+    text-decoration: none;
+    transition: all 0.25s ease;
+    white-space: nowrap;
+}
+.work__filter-item:hover {
+    background-color: #020202;
+    color: #ffffff;
+}
+.work__filter-item.is-active {
+    background-color: #020202;
+    color: #ffffff;
+}
