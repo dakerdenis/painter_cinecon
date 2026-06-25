@@ -146,7 +146,20 @@ p.tagline {
 .shatter-nav a:hover::after {
   width: 100%;
 }
+.language__switcher {
+  width: 200px;
 
+}
+.language__switcher form {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+.language__switcher button {
+  font-size: 25px;
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0);
+}
 .shatter-back {
   margin-top: 12px;
   background: transparent;
@@ -172,4 +185,8 @@ p.tagline {
     color: #cececed3;
     font-size: 14px;
     font-weight: 400;
+}
+.language__switcher button.is-active {
+  text-decoration: underline;
+  text-underline-offset: 5px;
 }

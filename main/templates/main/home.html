@@ -1,8 +1,8 @@
 {% extends "main/layouts/base.html" %}
 
-{% load static %}
+{% load static i18n i18n_db %}
 
-{% block title %}Home{% endblock %}
+{% block title %}Painter Cinecon{% endblock %}
 
 {% block page_css %}
 <link rel="stylesheet" href="{% static 'css/main.css' %}">
@@ -22,11 +22,23 @@
 
 <!-- 2. Меню после разлёта -->
 <nav class="shatter-nav" id="shatterNav">
-  <a href="{% url 'about' %}">About Me</a>
-  <a href="{% url 'work' %}">Work</a>
-  <a href="{% url 'exhibitions' %}">Exhibitions</a>
-  <a href="{% url 'blog' %}">Blog</a>
-  <a href="{% url 'contact' %}">Contact</a>
+<div class="language__switcher">
+    {% get_current_language as CUR %}
+    <form action="{% url 'set_language' %}" method="post">
+      {% csrf_token %}
+      <input type="hidden" name="next" value="{{ request.path }}">
+      {% get_available_languages as LANGS %}
+      {% for code, name in LANGS %}
+      <button type="submit" name="language" value="{{ code }}"{% if code == CUR %} class="is-active"{% endif %}>{{ code|upper }}</button>
+      {% endfor %}
+    </form>
+  </div>
+  <a href="{% url 'about' %}">{% t "nav.about" "About Me" %}</a>
+  <a href="{% url 'work' %}">{% t "nav.work" "Works" %}</a>
+  <a href="{% url 'exhibitions' %}">{% t "nav.exhibitions" "Exhibitions" %}</a>
+  <a href="{% url 'blog' %}">{% t "nav.blog" "Blog" %}</a>
+  <a href="{% url 'contact' %}">{% t "nav.contact" "Contact" %}</a>
+  
   <button class="shatter-back" id="shatterBack">← Back</button>
 </nav>
 
